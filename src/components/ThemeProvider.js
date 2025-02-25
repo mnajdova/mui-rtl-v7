@@ -11,11 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const themeInitialOptions = {
-  dense: false,
   direction: 'ltr',
-  paletteColors: {},
-  spacing: 8, // spacing unit
-  paletteMode: 'light',
 };
 
 export default function ThemeProvider(props) {	
@@ -39,7 +35,7 @@ export default function ThemeProvider(props) {
     }	
   }, themeInitialOptions);	
 
-  const { dense, direction, paletteColors, paletteMode, spacing } = themeOptions;	
+  const { direction } = themeOptions;	
 
   useEnhancedEffect(() => {	
     document.body.setAttribute('dir', direction);	

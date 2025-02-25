@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 import { documentGetInitialProps } from '@mui/material-nextjs/v15-pagesRouter';
 import createEmotionCache from '../utils/createEmotionCache';
 
@@ -15,7 +15,7 @@ export default function Document() {
   );
 }
 
-Document.getInitialProps = async (ctx: any) => {
+Document.getInitialProps = async (ctx: DocumentContext) => {
   try {
     const finalProps = await documentGetInitialProps(ctx, {
       emotionCache: createEmotionCache(),

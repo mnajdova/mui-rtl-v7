@@ -21,8 +21,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';	
 import MoreVertIcon from '@mui/icons-material/MoreVert';	
 
-const t = (a: string) => a;	
-
 const IconToggleButton = styled(ToggleButton)({	
   display: 'flex',	
   justifyContent: 'center',	
@@ -33,10 +31,11 @@ const IconToggleButton = styled(ToggleButton)({
 });	
 
 function IconButtonWrapper(props: IconButtonProps & { expand: boolean}) {	
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { expand, ...other } = props;	
   return <IconButton {...other} />;
 }
-// @ts-ignore
+// @ts-expect-error fix later
 const ExpandMore = styled(IconButtonWrapper)(({ theme }) => ({	
   marginLeft: 'auto',	
   transition: theme.transitions.create('transform', {	
@@ -44,14 +43,14 @@ const ExpandMore = styled(IconButtonWrapper)(({ theme }) => ({
   }),	
   variants: [	
     {	
-      // @ts-ignore
+      // @ts-expect-error fix later
       props: ({ expand }) => !expand,	
       style: {	
         transform: 'rotate(0deg)',	
       },	
     },	
     {	
-      // @ts-ignore
+      // @ts-expect-error fix later
       props: ({ expand }) => !!expand,	
       style: {	
         transform: 'rotate(180deg)',	
@@ -157,7 +156,7 @@ export default function Home() {
   const upperTheme = useTheme();	
   const changeTheme = useChangeTheme();	
 
-  const handleChangeDirection = (event: any, direction: any) => {	
+  const handleChangeDirection = (event: React.MouseEvent<HTMLElement, MouseEvent>, direction: 'ltr' | 'rtl') => {	
     if (direction === null) {	
       direction = upperTheme.direction;	
     }	
